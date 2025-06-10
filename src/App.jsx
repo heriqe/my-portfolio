@@ -26,7 +26,8 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        <h1>Bem-vindo ao meu portfólio!</h1>
+      <p>Este é um exemplo de conteúdo estático no index.html.</p>
       </p>
     </>
   )
