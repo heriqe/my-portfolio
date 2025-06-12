@@ -9,6 +9,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   background: #fff;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -50,6 +51,28 @@
   color: #888;
 }
 
+.fade-in {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 800px) {
+  .App {
+    max-width: 98vw !important;
+    padding: 12px !important;
+  }
+}
+
 @media (max-width: 600px) {
   .App {
     padding: 12px;
@@ -62,5 +85,19 @@
 
   h1 {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .App {
+    padding: 4px !important;
+  }
+
+  header img {
+    width: 70px !important;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
   }
 }
