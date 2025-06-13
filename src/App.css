@@ -101,3 +101,22 @@
     font-size: 1.3rem;
   }
 }
+
+section {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  margin-bottom: 24px;
+  padding: 24px;
+  box-shadow: 0 2px 12px #0001;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.App.dark section {
+  background: #232526cc;
+  box-shadow: 0 2px 12px #0005;
+}
+
+section:hover {
+  box-shadow: 0 6px 24px #0002;
+  transform: translateY(-2px) scale(1.01);
+}

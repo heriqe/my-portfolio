@@ -1,12 +1,38 @@
-export default function Habilidades() {
+import PropTypes from 'prop-types'
+
+const defaultSkills = [
+  'Comunicação',
+  'Trabalho em equipe',
+  'Resolução de problemas',
+  'Proatividade',
+  'Aprendizado rápido',
+  'Organização'
+]
+
+const skillStyle = {
+  background: '#6366f1',
+  color: '#fff',
+  padding: '6px 14px',
+  borderRadius: 16,
+  fontWeight: 500,
+  fontSize: 15,
+  marginBottom: 8,
+  display: 'inline-block'
+}
+
+export default function Habilidades({ skills = defaultSkills }) {
   return (
     <section aria-labelledby="habilidades-title">
-      <h2 id="habilidades-title">Habilidades</h2>
-      <ul>
-        <li>React.js, JavaScript, HTML, CSS</li>
-        <li>Git, GitHub, Figma</li>
-        <li>APIs REST, Node.js (básico)</li>
+      <h3 id="habilidades-title">Habilidades</h3>
+      <ul style={{ display: 'flex', flexWrap: 'wrap', gap: 12, listStyle: 'none', padding: 0, margin: 0 }}>
+        {skills.map(skill => (
+          <li key={skill} style={skillStyle}>{skill}</li>
+        ))}
       </ul>
     </section>
-  );
+  )
+}
+
+Habilidades.propTypes = {
+  skills: PropTypes.arrayOf(PropTypes.string)
 }
