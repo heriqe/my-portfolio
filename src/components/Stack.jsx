@@ -1,13 +1,15 @@
-import { FaReact, FaDocker, FaNodeJs, FaHtml5, FaCss3Alt, FaJs } from 'react-icons/fa'
+import { FaVuejs, FaReact, FaDocker, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaBolt } from 'react-icons/fa'
 
 export default function StackSection({ darkMode }) {
   const stack = [
     { icon: <FaReact color="#61dafb" />, name: 'React' },
+    { icon: <FaVuejs color="#42b883" />, name: 'Vue.js' },
     { icon: <FaJs color="#f7df1e" />, name: 'JavaScript' },
     { icon: <FaNodeJs color="#3c873a" />, name: 'Node.js' },
     { icon: <FaHtml5 color="#e34c26" />, name: 'HTML5' },
     { icon: <FaCss3Alt color="#1572b6" />, name: 'CSS3' },
-    { icon: <FaDocker color="#2496ed" />, name: 'Docker' }
+    { icon: <FaDocker color="#2496ed" />, name: 'Docker' },
+    { icon: <FaBolt color="#ffd62e" />, name: 'Vite' } // Adiciona o Vite
   ]
   return (
     <section aria-labelledby="stack-title">

@@ -9,18 +9,18 @@ const defaultSkills = [
   'Organização'
 ]
 
-const skillStyle = {
-  background: '#6366f1',
-  color: '#fff',
-  padding: '6px 14px',
-  borderRadius: 16,
-  fontWeight: 500,
-  fontSize: 15,
-  marginBottom: 8,
-  display: 'inline-block'
-}
+export default function Habilidades({ skills = defaultSkills, darkMode = false }) {
+  const skillStyle = {
+    background: darkMode ? "#6ee7b7" : "#6366f1",
+    color: '#fff',
+    padding: '6px 14px',
+    borderRadius: 16,
+    fontWeight: 500,
+    fontSize: 15,
+    marginBottom: 8,
+    display: 'inline-block'
+  }
 
-export default function Habilidades({ skills = defaultSkills }) {
   return (
     <section aria-labelledby="habilidades-title">
       <h3 id="habilidades-title">Habilidades</h3>
@@ -34,5 +34,6 @@ export default function Habilidades({ skills = defaultSkills }) {
 }
 
 Habilidades.propTypes = {
-  skills: PropTypes.arrayOf(PropTypes.string)
+  skills: PropTypes.arrayOf(PropTypes.string),
+  darkMode: PropTypes.bool
 }

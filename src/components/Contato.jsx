@@ -1,4 +1,4 @@
-import { FaEnvelope, FaGithub, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaPhone, FaMapMarkerAlt, FaBriefcase } from "react-icons/fa";
 
 export default function Contato({ darkMode }) {
   return (
@@ -35,6 +35,14 @@ export default function Contato({ darkMode }) {
           >
             <FaPhone className="contato-icon" />
             19 99521-1575
+          </a>
+        </li>
+        <li>
+          <a 
+            href="https://maps.app.goo.gl/e1R7XByNwgqWnkjw5"
+            className="contato-link" aria-label="Localização">
+            <FaMapMarkerAlt className="contato-icon" />
+            Campinas, SP, Brasil
           </a>
         </li>
       </ul>

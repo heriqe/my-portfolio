@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import henriqueImg from './assets/Henrique.jpg'
 import './App.css'
 import Stark from './components/Stack'
-import Objetivos from './components/Objetivos'
 import Projetos from './components/Projetos'
 import Habilidades from './components/Habilidades'
 import Contato from './components/Contato'
@@ -86,22 +85,24 @@ function App() {
               Henrique Ferreira da Silva
             </h2>
             <p style={{
+              margin: '4px 0 0 0',
               fontSize: 18,
-              color: darkMode ? '#b6b6b6' : '#555',
-              margin: '6px 0 0 0',
-              fontWeight: 600,
-              letterSpacing: 0.5
+              fontWeight: 500,
+              color: darkMode ? '#6ee7b7' : '#6366f1',
+              textShadow: darkMode
+                ? '0 2px 8px #000a'
+                : '0 2px 8px #b6b6b633',
+              opacity: 0.85
             }}>
-              Desenvolvedor Front-End | React | JavaScript
+              Desenvolvedor Fullstack
             </p>
           </div>
         </div>
       </header>
       <Contato darkMode={darkMode}/>
       <Stark darkMode={darkMode} />
-      <Objetivos />
-      <Projetos />
       <Habilidades />
+      <Projetos darkMode={darkMode} />
     </main>
   )
 }
