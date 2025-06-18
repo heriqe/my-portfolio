@@ -34,6 +34,50 @@ const projetos = [
   },
 ];
 
+const sectionStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+};
+
+const listStyle = {
+  display: "flex",
+  gap: "1.5rem",
+  flexWrap: "wrap",
+  listStyle: "none",
+  padding: 0,
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100%",
+};
+
+const getCardStyle = (darkMode) => ({
+  border: darkMode ? "1px solid #333" : "1px solid #ccc",
+  borderRadius: 8,
+  padding: "1rem",
+  width: 300,
+  background: darkMode ? "#232526" : "#fff",
+  color: darkMode ? "#f3f3f3" : "#181818",
+  boxShadow: darkMode
+    ? "0 2px 8px #000a"
+    : "0 2px 8px rgba(0,0,0,0.03)",
+  transition: "background 0.4s, color 0.4s, box-shadow 0.4s",
+  cursor: "pointer",
+  margin: "0 auto",
+  textAlign: "center",
+});
+
+const repoLinkStyle = (darkMode) => ({
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "0.3rem",
+  marginTop: "0.5rem",
+  textDecoration: "none",
+  color: darkMode ? "#6ee7b7" : "#333",
+  fontWeight: 500,
+  transition: "color 0.4s",
+});
+
 export default function Projetos({ darkMode }) {
   const [expandido, setExpandido] = useState(null);
 
@@ -42,38 +86,13 @@ export default function Projetos({ darkMode }) {
   };
 
   return (
-    <section aria-labelledby="projetos-title" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <section aria-labelledby="projetos-title" style={sectionStyle}>
       <h2 id="projetos-title">Projetos</h2>
-      <ul
-        style={{
-          display: "flex",
-          gap: "1.5rem",
-          flexWrap: "wrap",
-          listStyle: "none",
-          padding: 0,
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-        }}
-      >
+      <ul style={listStyle}>
         {projetos.map((projeto, idx) => (
           <li
             key={projeto.titulo}
-            style={{
-              border: darkMode ? "1px solid #333" : "1px solid #ccc",
-              borderRadius: "8px",
-              padding: "1rem",
-              width: "300px",
-              background: darkMode ? "#232526" : "#fff",
-              color: darkMode ? "#f3f3f3" : "#181818",
-              boxShadow: darkMode
-                ? "0 2px 8px #000a"
-                : "0 2px 8px rgba(0,0,0,0.03)",
-              transition: "background 0.4s, color 0.4s, box-shadow 0.4s",
-              cursor: "pointer",
-              margin: "0 auto",
-              textAlign: "center",
-            }}
+            style={getCardStyle(darkMode)}
             onClick={() => handleExpandir(idx)}
           >
             <h3 style={{ margin: 0 }}>{projeto.titulo}</h3>
@@ -92,16 +111,7 @@ export default function Projetos({ darkMode }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Ver repositório de ${projeto.titulo} no GitHub`}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.3rem",
-                    marginTop: "0.5rem",
-                    textDecoration: "none",
-                    color: darkMode ? "#6ee7b7" : "#333",
-                    fontWeight: 500,
-                    transition: "color 0.4s",
-                  }}
+                  style={repoLinkStyle(darkMode)}
                   onClick={e => e.stopPropagation()}
                 >
                   <FaGithub color={darkMode ? "#6ee7b7" : "#333"} />

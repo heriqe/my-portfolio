@@ -1,11 +1,82 @@
 import { useState, useEffect } from 'react'
 import henriqueImg from './assets/Henrique.jpg'
 import './App.css'
-import Stark from './components/Stack'
+import Stack from './components/Stack'
 import Projetos from './components/Projetos'
 import Habilidades from './components/Habilidades'
 import Contato from './components/Contato'
 import DarkModeToggle from './components/DarkModeToggle'
+
+const getHeaderStyles = (darkMode) => ({
+  container: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 24
+  },
+  img: {
+    width: 80,
+    height: 80,
+    borderRadius: '50%',
+    border: darkMode ? '3px solid #6ee7b7' : '3px solid #6366f1',
+    boxShadow: darkMode
+      ? '0 2px 12px #000a'
+      : '0 2px 12px #b6b6b633',
+    marginRight: 16,
+    objectFit: 'cover'
+  },
+  name: {
+    fontWeight: 900,
+    fontSize: 28,
+    letterSpacing: 1,
+    margin: 0,
+    color: darkMode ? '#6ee7b7' : '#6366f1',
+    textShadow: darkMode
+      ? '0 2px 8px #000a'
+      : '0 2px 8px #b6b6b633'
+  },
+  role: {
+    margin: '4px 0 0 0',
+    fontSize: 18,
+    fontWeight: 500,
+    color: darkMode ? '#6ee7b7' : '#6366f1',
+    textShadow: darkMode
+      ? '0 2px 8px #000a'
+      : '0 2px 8px #b6b6b633',
+    opacity: 0.85
+  }
+})
+
+// Header separado
+function Header({ darkMode }) {
+  const styles = getHeaderStyles(darkMode)
+  return (
+    <header
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 40,
+        position: 'relative'
+      }}
+    >
+      <div style={styles.container}>
+        <img
+          src={henriqueImg}
+          alt="Foto de Henrique"
+          style={styles.img}
+        />
+        <div>
+          <h2 tabIndex={0} style={styles.name}>
+            Henrique Ferreira da Silva
+          </h2>
+          <p style={styles.role}>
+            Desenvolvedor Fullstack
+          </p>
+        </div>
+      </div>
+    </header>
+  )
+}
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -46,61 +117,9 @@ function App() {
       aria-label="Página principal do portfólio de Henrique"
     >
       <DarkModeToggle darkMode={darkMode} onToggle={() => setDarkMode(v => !v)} />
-      <header
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          marginBottom: 40,
-          position: 'relative'
-        }}
-      >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-          <img
-            src={henriqueImg}
-            alt="Foto de Henrique"
-            style={{
-              width: 80,
-              height: 80,
-              borderRadius: '50%',
-              border: darkMode ? '3px solid #6ee7b7' : '3px solid #6366f1',
-              boxShadow: darkMode
-                ? '0 2px 12px #000a'
-                : '0 2px 12px #b6b6b633',
-              marginRight: 16,
-              objectFit: 'cover'
-            }}
-          />
-          <div>
-            <h2 tabIndex={0} style={{
-              fontWeight: 900,
-              fontSize: 28,
-              letterSpacing: 1,
-              margin: 0,
-              color: darkMode ? '#6ee7b7' : '#6366f1',
-              textShadow: darkMode
-                ? '0 2px 8px #000a'
-                : '0 2px 8px #b6b6b633'
-            }}>
-              Henrique Ferreira da Silva
-            </h2>
-            <p style={{
-              margin: '4px 0 0 0',
-              fontSize: 18,
-              fontWeight: 500,
-              color: darkMode ? '#6ee7b7' : '#6366f1',
-              textShadow: darkMode
-                ? '0 2px 8px #000a'
-                : '0 2px 8px #b6b6b633',
-              opacity: 0.85
-            }}>
-              Desenvolvedor Fullstack
-            </p>
-          </div>
-        </div>
-      </header>
+      <Header darkMode={darkMode} />
       <Contato darkMode={darkMode}/>
-      <Stark darkMode={darkMode} />
+      <Stack darkMode={darkMode} />
       <Habilidades />
       <Projetos darkMode={darkMode} />
     </main>
